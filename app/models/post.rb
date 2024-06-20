@@ -17,4 +17,5 @@ class Post < ApplicationRecord
   validates(:expires_on, presence: true)
   # adding assoication for user to posts 
   belongs_to(:user)
+  belongs_to(:board)
 end

@@ -12,4 +12,5 @@ class Board < ApplicationRecord
   validates(:name, presence: true, uniqueness: true)
   # added the assoications for board to user
   belongs_to(:user)
+  has_many(:post)
 end

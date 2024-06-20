@@ -23,5 +23,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   # added assoication for user to board and post
   has_many(:board)
-  has_many(:posts)
+  has_many(:post)
 end

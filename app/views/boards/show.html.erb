@@ -62,7 +62,15 @@
 
   <% @active_posts.each do |a_post| %>
     <tr>
-      <td><%= a_post.title %></td>
+      <% if current_user != nil %>
+        <% if current_user.id != a_post.user_id %>
+          <td><%= a_post.title %></td>
+        <% else %>
+          <td><%= a_post.title %> <a href="/delete_post/<%= a_post.id %>">Delete post</a></td>
+        <% end %>
+      <% else %>
+        <td><%= a_post.title %></td>
+      <% end %>
       <td><%= a_post.body %></td>
       <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
       <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
@@ -82,7 +90,15 @@
 
   <% @expired_posts.each do |a_post| %>
     <tr>
-      <td><%= a_post.title %></td>
+      <% if current_user != nil %>
+        <% if current_user.id != a_post.user_id %>
+          <td><%= a_post.title %></td>
+        <% else %>
+          <td><%= a_post.title %> <a href="/delete_post/<%= a_post.id %>">Delete post</a></td>
+        <% end %>
+      <% else %>
+        <td><%= a_post.title %></td>
+      <% end %>
       <td><%= a_post.body %></td>
       <td><%= a_post.created_at.strftime("%b %e, %Y") %></td>
       <td><%= a_post.expires_on.strftime("%b %e, %Y") %></td>
