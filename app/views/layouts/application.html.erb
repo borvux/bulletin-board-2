@@ -14,7 +14,7 @@
     <nav>
       <a href="/">Bulletin Board</a>
 
-      <% if current_user != nil %>
+      <% if current_user.present? %>
         <a href="/users/sign_out">Sign out</a>
         <a href="/users/edit">Edit</a>
       <% else %>

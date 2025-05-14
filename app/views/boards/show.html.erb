@@ -12,7 +12,7 @@
   Add a new post
 </h2>
 
-<% if current_user != nil %>
+<% if current_user.present? %>
   <form action="/insert_post" method="post">
     <div>
       <label for="title_box">
@@ -65,7 +65,7 @@
     <tr>
       <td>
         <%= a_post.title %>
-        <% if current_user != nil && current_user.id == a_post.user_id %>
+        <% if current_user.present? != nil && current_user.id == a_post.user_id %>
           <a href="/delete_post/<%= a_post.id %>">Delete post</a>
         <% end %>
       </td>
